@@ -32,7 +32,7 @@ app.get('/datos', async (req, res) => {
         ul.nombre AS "Nombre",
         ul.caller_number AS "Num Celular",
         ul.callercountry AS "Pais",
-        ul.caller_zip_code AS "Z Code",
+        ul.caller_zip_code AS "Code",
         ul.caller_city AS "Ciudad",
         ul.caller_state AS "Estado",
         ul.solo_o_acompanado AS "Solo",
