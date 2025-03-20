@@ -38,7 +38,7 @@ app.get('/datos', async (req, res) => {
         ul.solo_o_acompanado AS "Solo",
         ul.tiene_seguro AS "Seguro",
         ul.chocaron_o_choco AS "Responsabilidad",
-        ul.fecha_creacion AS "Fecha llamada"
+        to_char(ul.fecha_creacion, 'Dy, MM/DD/YYYY HH24:MI:SS') AS "Fecha llamada"
       FROM public.user_llamada ul order by ul.fecha_creacion desc
     `;
     const result = await pool.query(queryText);
