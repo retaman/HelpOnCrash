@@ -32,14 +32,14 @@ app.get('/datos', async (req, res) => {
         ul.nombre AS "Nombre",
         ul.caller_number AS "Num Celular",
         ul.callercountry AS "Pais",
-        ul.caller_zip_code AS "Zip Code",
+        ul.caller_zip_code AS "Z Code",
         ul.caller_city AS "Ciudad",
         ul.caller_state AS "Estado",
-        ul.solo_o_acompanado AS "Solo o",
+        ul.solo_o_acompanado AS "Solo",
         ul.tiene_seguro AS "Seguro",
         ul.chocaron_o_choco AS "Responsabilidad",
         ul.fecha_creacion AS "Fecha llamada"
-      FROM public.user_llamada ul
+      FROM public.user_llamada ul order by ul.fecha_creacion desc
     `;
     const result = await pool.query(queryText);
 
@@ -112,7 +112,7 @@ app.get('/datos', async (req, res) => {
     </head>
     <body>
       <nav>Help on Crash - Datos Llamadas</nav>
-      <h1>Registros desde la Base de Datos</h1>
+      <h1>Registros ordenados por fecha de llamada</h1>
       <table>
         <thead>
           <tr>
